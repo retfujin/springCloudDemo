@@ -1,5 +1,7 @@
 package com.acec.ribbonconsumer.controller;
 
+import com.acec.ribbonconsumer.domain.User;
+import com.acec.ribbonconsumer.service.HelloService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,21 +20,20 @@ public class ConsumerController {
     @Autowired
     RestTemplate restTemplate;
 
+    @Autowired
+    HelloService helloService;
+
     @RequestMapping(value = "/ribbon-consumer", method = RequestMethod.GET)
     public String helloConsumer() {
-        return restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
+        return helloService.helloService();
     }
 
     @RequestMapping(value = "/ribbon-consumer-user", method = RequestMethod.GET)
-    public String user1Consumer(@RequestParam String allRequestParams) {
-        Map<String,String> postData = new HashMap();
-        postData.put("allRequestParams", allRequestParams);
-        JSONObject jsonObject = restTemplate.getForEntity("http://HELLO-SERVICE/getUser1?allRequestParams="+allRequestParams,JSONObject.class,postData).getBody();
-        if(jsonObject==null){
-            return "没有数据";
-        }else{
-            return jsonObject.toJSONString();
-        }
+    public User user1Consumer(@RequestParam Long id) {
+
+        User user = helloService.find(id);
+
+        return user;
 
     }
 }
