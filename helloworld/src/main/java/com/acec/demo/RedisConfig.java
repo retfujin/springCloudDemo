@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.lang.reflect.Method;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -28,6 +31,8 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 @Configuration
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport{
+
+    Logger logger = LoggerFactory.getLogger(RedisConfig.class);
     @Bean
     @Override
     public KeyGenerator keyGenerator() {
@@ -40,6 +45,7 @@ public class RedisConfig extends CachingConfigurerSupport{
                 for (Object obj : params) {
                     sb.append(obj.toString());
                 }
+                logger.info("keyGenerator={}",sb.toString());
                 return sb.toString();
             }
         };
