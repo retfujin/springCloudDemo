@@ -7,12 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
+        <module name="feign-consumer" />
         <module name="helloworld" />
         <module name="ribbon-consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-server" target="1.7" />
+      <module name="feign-consumer" target="1.8" />
+      <module name="feignconsumer" target="1.8" />
       <module name="helloworld" target="1.7" />
       <module name="ribbon-consumer" target="1.7" />
       <module name="springCloudDemo" target="1.5" />

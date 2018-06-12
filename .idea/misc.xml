@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/helloworld/pom.xml" />
         <option value="$PROJECT_DIR$/ribbon-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/feign-consumer/pom.xml" />
       </list>
     </option>
   </component>

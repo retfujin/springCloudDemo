@@ -32,7 +32,7 @@ public class HelloService {
         return bodyString;
     }
 
-
+    @HystrixCommand(fallbackMethod = "helloFallback1")
     public User find(Long id){
         long start = System.currentTimeMillis();
 
@@ -46,6 +46,10 @@ public class HelloService {
     }
 
     public String helloFallback(){
-        return "my error";
+        return "my is error";
+    }
+
+    public User helloFallback1(Long id){
+        return null;
     }
 }
