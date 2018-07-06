@@ -13,5 +13,6 @@
         <module>eureka-server</module>
         <module>helloworld</module>
         <module>ribbon-consumer</module>
+        <module>helloserviceapi</module>
     </modules>
 </project>
