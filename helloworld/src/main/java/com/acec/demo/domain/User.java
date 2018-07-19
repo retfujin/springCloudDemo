@@ -5,6 +5,8 @@
  */
 package com.acec.demo.domain;
 
+import org.springframework.data.annotation.Transient;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +34,9 @@ public class User implements Serializable {
 	private String nickName;
 	@Column(nullable = false)
 	private String regTime;
+
+	@Transient
+	private Integer age;
 
 	public User() {
 		super();
@@ -81,4 +86,24 @@ public class User implements Serializable {
 		this.regTime = regTime;
 	}
 
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", passWord='" + passWord + '\'' +
+				", email='" + email + '\'' +
+				", nickName='" + nickName + '\'' +
+				", regTime='" + regTime + '\'' +
+				", age=" + age +
+				'}';
+	}
 }

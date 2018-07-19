@@ -17,9 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -41,6 +39,27 @@ public class HelloWorldController {
         ServiceInstance instance = client.getLocalServiceInstance();
         logger.info("/hello, host:" + instance.getHost() + "， service id:" + instance.getServiceId());
         return "Hello World";
+    }
+
+    @RequestMapping("/hello1")
+    public String hello1(@RequestParam String name) {
+
+        return "name="+name;
+    }
+
+    @RequestMapping("/hello2")
+    public User hello2(@RequestHeader("name") String name, @RequestHeader("age") Integer age) {
+        User user = new User();
+        user.setUserName(name);
+        user.setAge(age);
+        return user;
+    }
+
+    @RequestMapping("/hello3")
+    public String hello3(@RequestBody User user){
+
+        return user.toString();
+
     }
 
     @RequestMapping("/getUser")

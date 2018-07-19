@@ -26,6 +26,8 @@ public class User implements Serializable {
 
 	private String regTime;
 
+	private Integer age;
+
 	public User() {
 		super();
 	}
@@ -74,4 +76,25 @@ public class User implements Serializable {
 		this.regTime = regTime;
 	}
 
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "feignUser{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", passWord='" + passWord + '\'' +
+				", email='" + email + '\'' +
+				", nickName='" + nickName + '\'' +
+				", regTime='" + regTime + '\'' +
+				", age=" + age +
+				'}';
+	}
 }
