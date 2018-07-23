@@ -12,6 +12,10 @@ public class ConsumerController {
     @Autowired
     private HelloService helloService;
 
+    @Autowired
+    private RefactorHelloService refactorHelloService;
+
+
     @RequestMapping(value = "/feign-consumer", method = RequestMethod.GET)
     public String helloConsumer(){
         return helloService.hello();
@@ -28,7 +32,19 @@ public class ConsumerController {
     }
 
 
-    @RequestMapping(value = "/feign-consumer/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/feign-consumer3", method = RequestMethod.GET)
+    public String helloConsumer3() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(refactorHelloService.hello("MIMI")). append("\n");
+        sb.append(refactorHelloService.hello("MIMI", 20)).append("\n");
+        sb.append(refactorHelloService.hello(new com.acec.helloserviceapi.User("MIMI",30))).append("\n");
+        return sb.toString();
+    }
+
+
+
+
+@RequestMapping(value = "/feign-consumer/user", method = RequestMethod.GET)
     public User helloConsumerUser(){
         return helloService.getMyUser();
     }

@@ -27,9 +27,18 @@ public class User implements Serializable {
 
 	private String regTime;
 
+	private Integer age;
+
 	public User() {
 		super();
 	}
+
+	public User(String userName, Integer age) {
+		super();
+		this.age = age;
+		this.userName = userName;
+	}
+
 	public User(String nickName, String email, String userName, String passWord, String regTime) {
 		super();
 		this.email = email;
@@ -75,4 +84,11 @@ public class User implements Serializable {
 		this.regTime = regTime;
 	}
 
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 }
