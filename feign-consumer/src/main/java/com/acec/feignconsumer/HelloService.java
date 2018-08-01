@@ -4,7 +4,7 @@ package com.acec.feignconsumer;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("hello-service")
+@FeignClient(value = "hello-service",fallback = HelloServiceFallback.class)
 public interface HelloService {
 
     @RequestMapping("/hello")
@@ -16,16 +16,16 @@ public interface HelloService {
     String hello(@RequestParam("name") String name) ;
 
     @RequestMapping(value= "/hello2", method= RequestMethod.GET)
-    User hello(@RequestHeader("name") String name, @RequestHeader("age") Integer age);
+    FeignUser hello(@RequestHeader("name") String name, @RequestHeader("age") Integer age);
 
     @RequestMapping(value = "/hello3", method= RequestMethod.POST)
-    String hello(@RequestBody User user);
+    String hello(@RequestBody FeignUser user);
 
 
     @RequestMapping("/getUser")
-    User getMyUser();
+    FeignUser getMyUser();
 
 
     @RequestMapping("/getUser1")
-    User getMyUser(@RequestParam("id") Long id);
+    FeignUser getMyUser(@RequestParam("id") Long id);
 }

@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 package com.acec.helloserviceapi;
-
 import java.io.Serializable;
 
 /**
- *
+ * api
  * @author fujd
  */
 public class User implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 100L;
 
 	private Long id;
 
@@ -90,5 +89,18 @@ public class User implements Serializable {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "apiUser=={" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", passWord='" + passWord + '\'' +
+				", email='" + email + '\'' +
+				", nickName='" + nickName + '\'' +
+				", regTime='" + regTime + '\'' +
+				", age=" + age +
+				'}';
 	}
 }

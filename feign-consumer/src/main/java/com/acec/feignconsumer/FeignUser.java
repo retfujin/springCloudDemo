@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author fujd
  */
-public class User implements Serializable {
+public class FeignUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -28,16 +28,16 @@ public class User implements Serializable {
 
 	private Integer age;
 
-	public User() {
+	public FeignUser() {
 		super();
 	}
 
-	public User(String userName,Integer age){
+	public FeignUser(String userName, Integer age){
 		this.userName = userName;
 		this.age = age;
 	}
 
-	public User(String nickName, String email, String userName, String passWord, String regTime) {
+	public FeignUser(String nickName, String email, String userName, String passWord, String regTime) {
 		super();
 		this.email = email;
 		this.nickName = nickName;

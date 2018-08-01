@@ -14,5 +14,8 @@
         <module>helloworld</module>
         <module>ribbon-consumer</module>
         <module>helloserviceapi</module>
+        <module>api-gateway</module>
     </modules>
+
+
 </project>

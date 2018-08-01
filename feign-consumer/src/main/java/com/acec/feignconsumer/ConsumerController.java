@@ -1,6 +1,7 @@
 package com.acec.feignconsumer;
 
 
+import com.acec.helloserviceapi.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,9 +26,9 @@ public class ConsumerController {
     public String helloConsumer2(){
         StringBuilder sb = new StringBuilder();
         sb.append(helloService.hello()).append("\n");
-        sb.append(helloService.hello("DIDI")).append("\n");
-        sb.append(helloService.hello("DIDI",30)).append("\n");
-        sb.append(helloService.hello(new User("nickNamew","ze@153.com","DiDi","pass","2018-10-01"))).append("\n");
+        sb.append(helloService.hello("DIDI1")).append("\n");
+        sb.append(helloService.hello("DIDI2",30)).append("\n");
+        sb.append(helloService.hello(new FeignUser("nickNamew","ze@153.com","DiDi3","pass","2018-10-01"))).append("\n");
         return sb.toString();
     }
 
@@ -35,9 +36,9 @@ public class ConsumerController {
     @RequestMapping(value = "/feign-consumer3", method = RequestMethod.GET)
     public String helloConsumer3() {
         StringBuilder sb = new StringBuilder();
-        sb.append(refactorHelloService.hello("MIMI")). append("\n");
-        sb.append(refactorHelloService.hello("MIMI", 20)).append("\n");
-        sb.append(refactorHelloService.hello(new com.acec.helloserviceapi.User("MIMI",30))).append("\n");
+      //  sb.append(refactorHelloService.hello("MIMI1")). append("<br/>");
+      //  sb.append(refactorHelloService.hello("MIMI2", 20)).append("<br/>");
+        sb.append(refactorHelloService.hello6(new User("nickNamew","ze@153.com","MIMI3","pass","2019-10-01"))).append("<br/>");
         return sb.toString();
     }
 
@@ -45,13 +46,13 @@ public class ConsumerController {
 
 
 @RequestMapping(value = "/feign-consumer/user", method = RequestMethod.GET)
-    public User helloConsumerUser(){
+    public FeignUser helloConsumerUser(){
         return helloService.getMyUser();
     }
 
 
     @RequestMapping(value = "/feign-consumer/user1", method = RequestMethod.GET)
-    public User helloConsumerUser(Long id){
+    public FeignUser helloConsumerUser(Long id){
         return helloService.getMyUser(id);
     }
 }
