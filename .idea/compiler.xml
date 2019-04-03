@@ -20,7 +20,7 @@
     <bytecodeTargetLevel>
       <module name="api-gateway" target="1.6" />
       <module name="apigateway" target="1.5" />
-      <module name="config-client" target="1.5" />
+      <module name="config-client" target="1.6" />
       <module name="config-server" target="1.6" />
       <module name="eureka-server" target="1.7" />
       <module name="feign-consumer" target="1.8" />
