@@ -14,6 +14,7 @@
         <module name="feign-consumer" />
         <module name="helloserviceapi" />
         <module name="helloworld" />
+        <module name="rabbitmq-hello" />
         <module name="ribbon-consumer" />
       </profile>
     </annotationProcessing>
@@ -27,6 +28,7 @@
       <module name="feignconsumer" target="1.8" />
       <module name="helloserviceapi" target="1.8" />
       <module name="helloworld" target="1.7" />
+      <module name="rabbitmq-hello" target="1.8" />
       <module name="ribbon-consumer" target="1.7" />
       <module name="springCloudDemo" target="1.5" />
     </bytecodeTargetLevel>
